@@ -1,0 +1,9 @@
+{
+  "name": "2017-testcafe-demo",
+  "scripts": {
+    "start": "http-server"
+  },
+  "devDependencies": {
+    "http-server": "^0.10.0"
+  }
+}

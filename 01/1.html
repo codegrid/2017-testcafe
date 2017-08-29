@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>TestCafe Demo</title>
+    <style>
+        fieldset {
+            margin: 5px;
+        }
+        [type="button"] {
+            padding: 10px;
+        }
+        #user-name-error {
+            display: none;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<form id="send-form">
+    <fieldset>
+        <legend>名前</legend>
+        <input id="user-name" name="user-name" type="text" required /><span>※必須</span>
+        <div id="user-name-error">
+            名前は必須項目です。
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>職種</legend>
+        <label>
+            <input name="user-job" value="1" type="radio" checked />
+            <span>フロントエンドエンジニア</span>
+        </label>
+        <label>
+            <input name="user-job" value="2" type="radio" />
+            <span>UIデザイナー</span>
+        </label>
+        <label>
+            <input name="user-job" value="3" type="radio" />
+            <span>ディレクター</span>
+        </label>
+    </fieldset>
+    <fieldset>
+        <legend>スキル</legend>
+        <label>
+            <input name="user-job" value="1" type="checkbox" />
+            <span>HTML</span>
+        </label>
+        <label>
+            <input name="user-job" value="2" type="checkbox" />
+            <span>CSS</span>
+        </label>
+        <label>
+            <input name="user-job" value="3" type="checkbox" />
+            <span>JavaScript</span>
+        </label>
+    </fieldset>
+    <fieldset>
+        <legend>住所</legend>
+        <select>
+            <option value="1">東京都内</option>
+            <option value="2">関東周辺</option>
+            <option value="3">その他</option>
+        </select>
+    </fieldset>
+    <fieldset>
+        <legend>満足度</legend>
+        不満<input type="range" min="0" max="100" list="tickmarks">満足
+        <datalist id="tickmarks">
+            <option value="0" label="0%">
+            <option value="25" label="25%">
+            <option value="50" label="50%">
+            <option value="75" label="75%">
+            <option value="100" label="100%">
+        </datalist>
+    </fieldset>
+    <fieldset>
+        <legend>備考</legend>
+        <textarea id="note" rows="5" cols="100"></textarea>
+    </fieldset>
+    <input id="submit-button" type="button" value="送信" />
+</form>
+<script>
+  var userName = document.getElementById('user-name');
+  var userNameErrorMessage = document.getElementById('user-name-error');
+  var submitButton = document.getElementById('submit-button');
+  submitButton.addEventListener('click', function(){
+    userNameErrorMessage.style.display = 'none';
+    if(userName.value === ''){
+      userNameErrorMessage.style.display = 'block';
+      return false;
+    }
+    if(confirm('この内容で送信します。よろしいですか？')){
+      submitButton.disabled = true;
+      sessionStorage.setItem('userName', userName.value);
+      setTimeout(function(){
+        document.location.href="1-thanks.html";
+      }, 2000);
+    } else {
+      return false;
+    }
+  }, false);
+</script>
+</body>
+</html>

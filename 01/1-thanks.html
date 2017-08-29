@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+
+    <title>TestCafe Demo</title>
+</head>
+<body>
+<div id="thanks-message">
+    <span id="userName"></span>様、アンケートにお答えいただき、ありがとうございました。
+</div>
+<script>
+  document.getElementById('userName').textContent = sessionStorage.getItem('userName');
+</script>
+</body>
+</html>
