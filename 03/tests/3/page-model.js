@@ -6,12 +6,12 @@ const userSkills = Selector('input[name=user-skill]');
 
 export default class Page {
   constructor () {
-    this.userName     = Selector('#user-name');
-    this.address      = Selector('#address');
-    this.satisfaction = Selector('#satisfaction');
+    this.userName           = Selector('#user-name');
+    this.address            = Selector('#address');
+    this.satisfaction       = Selector('#satisfaction');
     this.satisfactionHandle = this.satisfaction.find('.ui-slider-handle');
-    this.note         = Selector('#note');
-    this.submitButton = Selector('#submit-button');
+    this.note               = Selector('#note');
+    this.submitButton       = Selector('#submit-button');
   }
 
   userJob(value) {
