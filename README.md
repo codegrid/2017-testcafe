@@ -14,8 +14,11 @@ npm install
 # serve localhost:8080
 npm start
 
-# run test
+# run test 01
 testcafe chrome ./01/test.js 
+
+# run test 03
+testcafe chrome ./03/tests
 
 ```
 

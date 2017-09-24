@@ -8,7 +8,7 @@ test('必要項目を入力後、送信して遷移先を確認', async t => {
   const submitButton = await Selector('#submit-button');
   await t
     .setNativeDialogHandler(() => true)
-.typeText(userName, 'ピクセルグリオ')
+    .typeText(userName, 'ピクセルグリオ')
     .click(submitButton);
   await t.expect(Selector('#thanks-message').innerText).eql('ピクセルグリオ様、アンケートにお答えいただき、ありがとうございました。');
 });

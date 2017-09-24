@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>TestCafe Demo</title>
+    <link rel="stylesheet" href="assets/jquery-ui.min.css">
+    <style>
+        fieldset {
+            margin: 5px;
+        }
+        [type="button"] {
+            padding: 10px;
+        }
+        #user-name-error {
+            display: none;
+            color: red;
+        }
+        .satisfaction-container {
+            padding: 10px;
+            width: 80%;
+        }
+        .satisfaction-label,
+        .satisfaction-tickmarks {
+            display: flex;
+            justify-content: space-between;
+        }
+        .satisfaction-label {
+            padding-bottom: 10px;
+        }
+        .satisfaction-tickmarks {
+            padding-top: 10px;
+        }
+    </style>
+    <script src="assets/jquery-1.12.4.min.js"></script>
+    <script src="assets/jquery-ui.min.js"></script>
+</head>
+<body>
+<form id="send-form">
+    <fieldset>
+        <legend>名前</legend>
+        <input id="user-name" name="user-name" type="text" required /><span>※必須</span>
+        <div id="user-name-error">
+            名前は必須項目です。
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>職種</legend>
+        <label>
+            <input name="user-job" value="1" type="radio" checked />
+            <span>フロントエンドエンジニア</span>
+        </label>
+        <label>
+            <input name="user-job" value="2" type="radio" />
+            <span>UIデザイナー</span>
+        </label>
+        <label>
+            <input name="user-job" value="3" type="radio" />
+            <span>ディレクター</span>
+        </label>
+    </fieldset>
+    <fieldset>
+        <legend>スキル</legend>
+        <label>
+            <input name="user-skill" value="1" type="checkbox" />
+            <span>HTML</span>
+        </label>
+        <label>
+            <input name="user-skill" value="2" type="checkbox" />
+            <span>CSS</span>
+        </label>
+        <label>
+            <input name="user-skill" value="3" type="checkbox" />
+            <span>JavaScript</span>
+        </label>
+    </fieldset>
+    <fieldset>
+        <legend>住所</legend>
+        <select id="address">
+            <option value="1">東京都内</option>
+            <option value="2">関東周辺</option>
+            <option value="3">その他</option>
+        </select>
+    </fieldset>
+    <fieldset>
+        <legend>満足度</legend>
+        <div class="satisfaction-container">
+            <div class="satisfaction-label">
+                <div>不満</div>
+                <div>満足</div>
+            </div>
+            <div id="satisfaction"></div>
+            <div class="satisfaction-tickmarks">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+            </div>
+            <input type="hidden" id="satisfaction-level" />
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>備考</legend>
+        <textarea id="note" rows="5" cols="100"></textarea>
+    </fieldset>
+    <input id="submit-button" type="button" value="送信" />
+</form>
+<script>
+  var userName = document.getElementById('user-name');
+  var userNameErrorMessage = document.getElementById('user-name-error');
+  var submitButton = document.getElementById('submit-button');
+  submitButton.addEventListener('click', function(){
+    userNameErrorMessage.style.display = 'none';
+    if(userName.value === ''){
+      userNameErrorMessage.style.display = 'block';
+      return false;
+    }
+    if(confirm('この内容で送信します。よろしいですか？')){
+      submitButton.disabled = true;
+      sessionStorage.setItem('userName', userName.value);
+      setTimeout(function(){
+        document.location.href="3-thanks.html";
+      }, 2000);
+    } else {
+      return false;
+    }
+  }, false);
+
+  $('#satisfaction').slider({ min: 1, max: 10, disabled: false });
+</script>
+</body>
+</html>
