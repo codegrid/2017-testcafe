@@ -14,6 +14,22 @@ export default class Page {
     this.submitButton       = Selector('#submit-button');
   }
 
+  userJobFrontend() {
+    return this.userJob(1);
+  }
+
+  userSkillFrontend() {
+    return this.userSkill(3);
+  }
+
+  addressObtionNearKantou() {
+    return this.addressOption(2);
+  }
+
+  satisfactionMiddleOffsets() {
+    return [this.satisfactionHandle, 500, 0];
+  }
+
   userJob(value) {
     return userJobs.filter(`[value="${value}"]`);
   }
