@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Login</title>
+    <style>
+        fieldset {
+            margin: 5px;
+        }
+        [type="button"] {
+            padding: 10px;
+        }
+        #login-error-message {
+            display: none;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<form id="login-form">
+    <fieldset>
+        <legend>ログイン</legend>
+        <div>
+            ユーザーID:　<input id="user-id" name="user-id" type="text" required />
+        </div>
+        <div>
+            パスワード:　<input id="user-password" name="user-password" type="password" required />
+        </div>
+        <div id="login-error-message">
+            ユーザーIDまたはパスワードが間違っています
+        </div>
+        <div>
+            <input id="login-button" type="button" value="ログイン" />
+        </div>
+    </fieldset>
+</form>
+<script>
+  var userId = document.getElementById('user-id');
+  var userPassword = document.getElementById('user-password');
+  var loginErrorMessage = document.getElementById('login-error-message');
+  var loginButton = document.getElementById('login-button');
+  loginButton.addEventListener('click', function () {
+    loginErrorMessage.style.display = 'none';
+    if (!validateLogin(userId.value, userPassword.value)) {
+      loginErrorMessage.style.display = 'block';
+      return false;
+    }
+    loginButton.disabled = true;
+    setTimeout(function () {
+      document.location.href = "top.html";
+    }, 1000);
+
+  }, false);
+
+  function validateLogin(id, password) {
+    var validateUsers = [
+      {id: 'admin', password: 'password'},
+      {id: 'user1', password: 'password'},
+    ];
+    return validateUsers.some(function(validateUser){
+      return validateUser.id === id && validateUser.password === password;
+    });
+  }
+</script>
+</body>
+</html>
