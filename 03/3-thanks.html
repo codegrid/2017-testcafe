@@ -7,11 +7,10 @@
     <title>TestCafe Demo</title>
 </head>
 <body>
-<div id="thanks-message">
-    <span id="userName"></span>様、アンケートにお答えいただき、ありがとうございました。
-</div>
+<div id="thanks-message"><span id="userName"></span>様、アンケートにお答えいただき、ありがとうございました。</div>
 <script>
-  document.getElementById('userName').textContent = sessionStorage.getItem('userName');
+  var userName = decodeURIComponent(location.search.replace(/^\?userName=(.+)$/, '$1'));
+  document.getElementById('userName').textContent = userName;
 </script>
 </body>
 </html>

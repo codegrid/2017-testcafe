@@ -91,6 +91,7 @@
             </div>
             <div id="satisfaction"></div>
             <div class="satisfaction-tickmarks">
+                <div>0</div>
                 <div>1</div>
                 <div>2</div>
                 <div>3</div>
@@ -125,14 +126,14 @@
       submitButton.disabled = true;
       sessionStorage.setItem('userName', userName.value);
       setTimeout(function(){
-        document.location.href="3-thanks.html";
+        document.location.href="3-thanks.html?userName=" + encodeURIComponent(userName.value);
       }, 2000);
     } else {
       return false;
     }
   }, false);
 
-  $('#satisfaction').slider({ min: 1, max: 10, disabled: false });
+  $('#satisfaction').slider({ min: 0, max: 10, disabled: false });
 </script>
 </body>
 </html>
