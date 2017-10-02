@@ -14,19 +14,19 @@ export default class Page {
     this.submitButton       = Selector('#submit-button');
   }
 
-  userJobFrontend() {
+  get userJobFrontend() {
     return this.userJob(1);
   }
 
-  userSkillFrontend() {
+  get userSkillFrontend() {
     return this.userSkill(3);
   }
 
-  addressObtionNearKantou() {
+  get addressObtionNearKantou() {
     return this.addressOption(2);
   }
 
-  satisfactionMiddleOffsets() {
+  get satisfactionMiddleOffsets() {
     return [this.satisfactionHandle, 500, 0];
   }
 
