@@ -1,6 +1,9 @@
 import { Selector, t } from 'testcafe';
 import ThanksPage from '../3-thanks/page-model';
 
+const jobFrontend = 1;
+const skillJavaScript = 3;
+
 const userJobs   = Selector('input[name=user-job]');
 const userSkills = Selector('input[name=user-skill]');
 
@@ -15,11 +18,11 @@ export default class Page {
   }
 
   get userJobFrontend() {
-    return this.userJob(1);
+    return this.userJob(jobFrontend);
   }
 
-  get userSkillFrontend() {
-    return this.userSkill(3);
+  get userSkillJavaScript() {
+    return this.userSkill(skillJavaScript);
   }
 
   get addressObtionNearKantou() {

@@ -10,7 +10,7 @@ test('全ての項目を入力後、送信して遷移先を確認', async t => 
     .setNativeDialogHandler(() => true)
     .typeText(page.userName, 'ピクセルグリオ')
     .click(page.userJobFrontend)
-    .click(page.userSkillFrontend)
+    .click(page.userSkillJavaScript)
     .click(page.address)
     .click(page.addressObtionNearKantou)
     .drag(...page.satisfactionMiddleOffsets)
